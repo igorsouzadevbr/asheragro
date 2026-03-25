@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    @apply antialiased;
+  }
+
+  body {
+    @apply font-sans text-gray-900 bg-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-10 py-4 bg-gradient-to-br from-primary-700 via-primary-600 to-primary-700 text-white font-semibold rounded-none uppercase tracking-wider text-sm hover:from-primary-800 hover:via-primary-700 hover:to-primary-800 transition-all duration-500 shadow-2xl hover:shadow-primary-900/50 hover:scale-105 relative overflow-hidden;
+  }
+
+  .btn-primary::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] transition-transform duration-700;
+  }
+
+  .btn-primary:hover::before {
+    @apply translate-x-[200%];
+  }
+
+  .btn-secondary {
+    @apply px-10 py-4 border-2 border-primary-700 text-primary-700 font-semibold rounded-none uppercase tracking-wider text-sm hover:bg-primary-700 hover:text-white transition-all duration-500 shadow-lg hover:shadow-2xl hover:scale-105;
+  }
+
+  .btn-gold {
+    @apply px-10 py-4 bg-gradient-to-br from-gold-600 via-gold-500 to-gold-600 text-white font-bold rounded-none uppercase tracking-widest text-sm hover:from-gold-700 hover:via-gold-600 hover:to-gold-700 transition-all duration-500 shadow-2xl hover:shadow-gold-900/50 hover:scale-105;
+  }
+
+  .section-title {
+    @apply text-5xl md:text-7xl font-serif font-bold text-gray-900 mb-8 tracking-tight leading-tight;
+  }
+
+  .section-subtitle {
+    @apply text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-20 font-light leading-relaxed;
+  }
+
+  .card-premium {
+    @apply bg-white shadow-2xl hover:shadow-primary-900/20 transition-all duration-500 hover:-translate-y-2 border border-gray-100;
+  }
+
+  .gradient-overlay {
+    @apply absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-primary-900/60;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-700 via-primary-600 to-gold-600;
+  }
+
+  .divider-gold {
+    @apply w-24 h-1 bg-gradient-to-r from-gold-600 via-gold-400 to-gold-600 mx-auto mb-8;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 1s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 1s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.8s ease-out forwards;
+}
+
+.animate-shimmer {
+  animation: shimmer 3s infinite;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  background-size: 1000px 100%;
+}
